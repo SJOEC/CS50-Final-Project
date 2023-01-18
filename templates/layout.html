@@ -1,10 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="initial-scale=1, width=device-width">
 
+        <!-- Link style sheet-->
         <link rel="stylesheet" type="text/css" href="/static/reset.css">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+        <!-- Connect Font-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
@@ -14,6 +19,15 @@
     </head>
 
     <body>
+        <div class="banner">
+            <p>
+                here will be the icon
+            </p>
+        </div>
+
+        <main class="container main">
+            {% block main %} {% endblock %}
+        </main>
 
     </body>
 
