@@ -6,15 +6,162 @@
 
 
 {% block main %}
-    <ul>
-        <!-- Show task -->
-    </ul>
 
-    <form action="/" method="post" >
-        <!-- Add form to add tasks -->
-        <label>
-            <input type="text" placeholder="Task">
-        </label>
-    </form>
+
+<div class="super-container">
+
+    <div class="container-message">
+        <div class="banner-welcome">
+            <h1>Hi {{ username }}!</h1>
+        </div>
+    </div>
+
+
+    <div class="container-counter">
+        <div class="center">
+            <div class="counter-center">
+                <span id="counter-min" style="text-align: center; font-size: 30px; display: inline">0:</span>
+                <span id="counter-seg" style="text-align: center; font-size: 30px; display: inline">00</span>
+            </div>
+            <input type="number" id="user-input" placeholder="Write time (minutes)">
+            <div class="center-add-icon">
+                <button id="start" style="background-color: transparent; border: 0; cursor: pointer; height: 30px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                      </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-add-task">
+        <div class="center">
+            <div class="task-form">
+                <form method="post" action="/">
+
+                    <div style="display: block">
+                        <!-- Add form to add tasks -->
+                        <input type="text" name="task" placeholder="Task" autocomplete="off" autofocus required>
+                    </div>
+
+
+                    <div class="center-add-icon">
+                        <button type="submit" class="add-task">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-tasks">
+        <table class="main-table">
+            {% for i,j in zip(foo,bar) %}
+                <tr>
+                    <form method="post" action="/remove">
+                        <label class="check-label">
+
+                                <td>
+                                    <input type="checkbox" value="{{ i['task'] }}" class="mybox" name="mycheckbox" onclick="crossout('box{{ j }}')">
+                                </td>
+
+                                <td>
+                                    <p id="box{{ j }}">
+                                        {{ i['task'] }}
+                                    </p>
+                                </td>
+
+                                <td>
+                                    <button type="submit" style="background-color: transparent; border: 0px; cursor: pointer;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                        </svg>
+                                    </button>
+                                </td>
+                        </label>
+                    </form>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+
+
+    <script>
+
+        let count_minutes = 0;
+        let count_seconds = 0;
+        let intervalId;
+        let points = 0
+        const counter_minutes = document.getElementById("counter-min");
+        const counter_seconds = document.getElementById("counter-seg");
+        const input = document.getElementById("user-input");
+        const start = document.getElementById("start");
+
+        start.addEventListener("click", function() {
+            if (input.value && input.value > 0 && input.value <= 59) {
+                clearInterval(intervalId);
+                count_minutes = parseInt(input.value,10);
+                count_seconds = 60;
+                count_minutes = count_minutes -1;
+                points = parseInt(input.value,10);
+                input.value="";
+                startTimer();
+            } else {
+                alert("Please enter a valid number between 1 and 59");
+            }
+        });
+
+        function startTimer() {
+            intervalId = setInterval(function() {
+                if (count_seconds === 0) {
+                    if (count_minutes === 0) {
+                        clearInterval(intervalId);
+                        alert("Time's up!");
+
+                        /*
+                        function update_points(){
+
+                            let user_points = {
+                            "points" : points
+                            }
+
+                            const request = new XMLHtppsRequest()
+
+                            request.open('POST', '/update_points/${JSON.stringify(user_ points)}')
+
+                            request.onload = () => {
+
+                                const flaskMessage = request.responseText
+
+                                console.log(flaskMessage)
+
+                            }
+                            request.send()
+
+                        }
+                        */
+
+                        return;
+                    }
+                    count_minutes--;
+                    count_seconds = 60;
+                }
+                count_seconds--;
+                counter_minutes.innerHTML = count_minutes + ":";
+                counter_seconds.innerHTML = count_seconds < 10 ? "0" + count_seconds : count_seconds;
+            }, 1000);
+        }
+
+    </script>
+
 
 {% endblock %}

@@ -14,15 +14,38 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
 
+        <!--Bootstrap
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        -->
+
         <title>leveling: {% block title %}{% endblock %}</title>
+
+        <script>
+                function  crossout(id) {
+                var box = document.getElementById(id);
+                box.style = "text-decoration: line-through";
+                }
+
+        </script>
 
     </head>
 
     <body>
+
         <div class="banner">
-            <p>
-                here will be the icon
-            </p>
+            <a href="/" class="logo">
+                <img src="/static/logo.png" class="logo">
+            </a>
+
+            <nav class="profile">
+                <li><a href="/profile">Profile</a></li>
+            </nav>
+
+            <nav>
+                <li><a href="/logout">Log Out</a></li>
+            </nav>
         </div>
 
         <main class="container main">

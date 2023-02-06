@@ -1,0 +1,287 @@
+.banner {
+    width: 100%;
+    height: 3%;
+    background-color: #C3B0D9;
+    font-family: 'Dosis', serif;
+}
+
+.banner-welcome {
+    width: 100%;
+    height: 15px;
+    background-color: #A0A3D9;
+    text-align: center;
+    font-family: 'Dosis', serif;
+    color: black;
+}
+
+.banner-welcome-profile {
+    width: 100%;
+    height: 20%;
+    background-color: #A0A3D9;
+    text-align: center;
+}
+
+.banner-welcome-profile h1{
+    padding-top: 10px;
+    font-family: 'Dosis', serif;
+    font-size: medium;
+    color: black;
+
+}
+
+.form-row{
+    display: block;
+    padding: 10px;
+}
+
+.center{
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+
+
+.container{
+    height: 150px;
+    position: relative;
+    border: 3px;
+}
+
+.container-tasks{
+    height: 150px;
+    position: relative;
+    border: 3px;
+    margin-top: -40px;
+}
+
+.container-counter{
+    height: 150px;
+    position: relative;
+    border: 3px;
+    margin-top: -34px;
+}
+
+.counter-center{
+    top: 50%;
+    left: 50%;
+    margin-left: 55px;
+}
+
+.container-profile-stats{
+
+    display: inline-block;
+
+}
+
+.container-message {
+    height: 50px;
+    position: relative;
+    border: 3px ;
+}
+
+.container-add-task{
+    height: 150px;
+    position: relative;
+    border: 3px;
+    margin-top: 0px
+}
+
+.container-login{
+    height: 300px;
+    position: relative;
+    display: block;
+    border: 3px;
+    margin-top: 0px
+
+}
+
+.center-add-icon {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-top: 40px
+}
+
+.meme {
+    margin-top: 500px;
+}
+.center-button{
+    margin-left: 50px;
+    padding: 15px;
+}
+
+.remark {
+    color: #C3B0D9;
+    cursor: pointer;
+}
+
+.logo {
+
+    display: inline
+}
+
+.history-title{
+    position: absolute;
+    top: 150%;
+    right: 30%;
+    font-size: 24px;
+
+}
+
+nav{
+    position: absolute;
+    right: 0;
+    top: 4%;
+    right: 2%;
+}
+
+nav li{
+    display: inline;
+    margin: 0 0 0 15px;
+    padding: 15px
+}
+
+.profile {
+    margin-right: 100px
+}
+
+nav a{
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.tasks-list{
+
+    margin-top: 30%;
+}
+.tasks-list li {
+
+    margin: 5px;
+}
+
+.task-form{
+
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.checked {
+    text-decoration: line-through;
+}
+
+p {
+    font-family: Dosis;
+}
+
+.main-table
+{
+    background-color: transparent;
+    margin-bottom: 1rem;
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+
+}
+
+.history-table{
+
+    border-collapse:separate;
+    border: solid gray 1px;
+    border-radius:6px;
+    position: absolute;
+    top: 200%;
+
+}
+
+table {
+
+    border-collapse:separate;
+    border: solid gray 1px;
+    border-radius:6px;
+
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    right: 2%;
+}
+
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    text-align: center;
+}
+
+tbody tr {
+    border: 3px solid gray;
+}
+
+.img-container{
+    position: absolute;
+    top: 40%;
+    left: 2%;
+    width: 35%
+}
+.profile-image{
+    max-width: 100%;
+}
+
+.center-img{
+    margin-top: 31%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+.super-container{
+
+    background-color: #2a2a2a;
+    height: 2000px;
+}
+
+
+.add-task{
+    background-color: transparent;
+    height: 50px;
+    border: 0px;
+    cursor: pointer;
+}
+
+
+
+
+html, body {
+    color: aliceblue;
+ }
+
+::placeholder{
+    text-align: center;
+    color: #b3b3b3;
+}
+
+input{
+    background-color: gray;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+}
+@media screen and (max-width:640px) {
+    .sqs-block-button * {
+        text-align: center !important;
+    }
+}

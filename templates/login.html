@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+    <div class="super-container">
+        <div class="container-login" id="login">
+            <div class="center">
+
+
+                <!-- login -->
+                <form method="post" action="/login">
+
+                    <div class="center">
+                        {{ foo }}
+                    </div>
+
+                    <div class="form-row">
+                        <label id="login_email">
+                            <input type="text" name="login_username" placeholder="Username" autocomplete="off" autofocus required >
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <label id="login_password">
+                        <input type="password" name="login_password" placeholder="Password" required>
+                        </label>
+                    </div>
+
+                    <div class="center-button">
+                        <button type="submit"> Continue </button>
+                    </div>
+
+                    <span>Don't have an account? <span class="remark" onclick="hide()">Sign Up</span></span>
+
+                </form>
+            </div>
+        </div>
+
+
+        <div class="container-login" id="signup">
+            <div class="center">
+                <!-- register -->
+                <form method="post" action="/register">
+
+                    <div class="form-row">
+                        <label id="register_email">
+                            <input type="text" name="username" placeholder="Username" autocomplete="off" autofocus required >
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <label id="register_password">
+                        <input type="password" name="password" placeholder="Password" required>
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <label id="check_password">
+                        <input type="password" name="confirmation" placeholder="Confirm" required>
+                        </label>
+                    </div>
+
+                    <div class="center-button">
+                        <button type="submit"> Continue </button>
+                    </div>
+
+                    <span>Already have an account? <span class="remark" onclick="hide()">Log in</span></span>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var login = document.getElementById("login");
+        var signup = document.getElementById("signup");
+
+
+
+        function hide() {
+
+            if (signup.style.display === "none") {
+                signup.style.display = "block";
+                login.style.display = "none";
+            }else{
+                login.style.display = "block";
+                signup.style.display = "none";
+            }
+        }
+
+        window.onload = hide;
+
+
+
+    </script>
+
+
+
+{% endblock %}

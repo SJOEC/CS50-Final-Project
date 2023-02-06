@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Profile
+{% endblock %}
+
+
+{% block main %}
+
+<div class="super-container">
+    <div class="container">
+
+        <div class="container">
+            <div class="banner-welcome-profile">
+                <h1>Welcome to your profile, {{ username }}!</h1>
+            </div>
+        </div>
+
+        <div class="img-container">
+            <div class="center-img">
+                <img src="/static/profile-picture.png" class="profile-image">
+            </div>
+        </div>
+
+
+
+        <div class="container-profile-stats">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Username
+                        </td>
+                        <td>
+                            {{ username }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Total Tasks Created
+                        </td>
+                        <td>
+                            {{ total_tasks }}
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tfooter>
+
+                </tfooter>
+
+            </table>
+
+            <h1 class="history-title">History</h1>
+
+            <table class="history-table">
+
+            <thead>
+                <tr>
+                    <td>Task</td>
+                    <td>Time</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for i in foo %}
+                    <tr>
+                        <td>
+                            {{ i['task_text'] }}
+                        </td>
+                        <td>
+                            {{ i['time']}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
