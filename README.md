@@ -1,7 +1,5 @@
 # LEVELING
 
-## Video Demo:  <https://www.youtube.com/watch?v=dLQ5u3lZrIA>
-
 #
 
 ## Privacy:
